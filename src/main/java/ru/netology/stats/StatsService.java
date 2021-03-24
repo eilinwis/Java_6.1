@@ -16,13 +16,9 @@ public class StatsService {
         public long findAverage(long[] purchases) {
          long sum = 0;
         for (long purchase : purchases) {
-            // аналог sum = sum + purchase;
             sum += purchase;
-            //long average = sum / purchases.length;
         }
-        //StatsService service = new StatsService();
         long average = calculateSum(purchases) / purchases.length;
-        //average = sum / purchases.length;
         return average;
     }
 
@@ -52,10 +48,6 @@ public class StatsService {
         return month + 1;
     }
     public long countBelowAverage(long[] purchases) {
-        //long sum = 0;
-        //for (long purchase : purchases) {
-          //  sum += purchase;
-        //long average = sum / purchases.length;
         long countBelow = 0;
         for (long purchase : purchases) {
             if (purchase < findAverage(purchases)){
@@ -65,10 +57,6 @@ public class StatsService {
         }
 
     public long countAboveAverage(long[] purchases) {
-        //long sum = 0;
-       // for (long purchase : purchases) {
-          //  sum += purchase;
-        //long average = sum / purchases.length;
         long countAbove = 0;
         for (long purchase : purchases) {
             if (purchase >findAverage(purchases)){
