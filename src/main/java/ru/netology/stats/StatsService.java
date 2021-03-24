@@ -1,32 +1,36 @@
 package ru.netology.stats;
 
 public class StatsService {
+
+    private long average ;
+    private long sum;
+
     public long calculateSum(long[] purchases) {
         long sum = 0;
         for (long purchase : purchases) {
-            // аналог sum = sum + purchase;
             sum += purchase;
         }
         return sum;
     }
 
-    public long findAverage(long[] purchases) {
-        long sum = 0;
+        public long findAverage(long[] purchases) {
+         long sum = 0;
         for (long purchase : purchases) {
             // аналог sum = sum + purchase;
             sum += purchase;
             //long average = sum / purchases.length;
         }
-        long average = sum / purchases.length;
-        ;
+        //StatsService service = new StatsService();
+        long average = calculateSum(purchases) / purchases.length;
+        //average = sum / purchases.length;
         return average;
     }
 
     public long findMax(long[] purchases) {
         long max = purchases[0];
         long month = 0;
-        for (long i = 0; i < purchases.length; i++) {
-            long score = purchases[(int) i];
+        for (int i = 0; i < purchases.length; i++) {
+            long score = purchases[i];
             if (max <= score) {
                 max = score;
                 month = i;
@@ -38,8 +42,8 @@ public class StatsService {
     public long findMin(long[] purchases) {
         long min = purchases[0];
         long month = 0;
-        for (long i = 0; i < purchases.length; i++) {
-            long score = purchases[(int) i];
+        for (int i = 0; i < purchases.length; i++) {
+            long score = purchases[i];
             if (min >= score) {
                 min = score;
                 month = i;
@@ -47,34 +51,34 @@ public class StatsService {
         }
         return month + 1;
     }
-
     public long countBelowAverage(long[] purchases) {
-        long sum = 0;
-        for (long purchase : purchases) {
-            sum += purchase;
-        }
-        long average = sum / purchases.length;
+        //long sum = 0;
+        //for (long purchase : purchases) {
+          //  sum += purchase;
+        //long average = sum / purchases.length;
         long countBelow = 0;
         for (long purchase : purchases) {
-            if (purchase < average){
-                countBelow++;
+            if (purchase < findAverage(purchases)){
+                countBelow++;}
             }
-        }
         return countBelow;
-    }
-    public long countAboveAverage(long[] purchases) {
-        long sum = 0;
-        for (long purchase : purchases) {
-            sum += purchase;
         }
-        long average = sum / purchases.length;
+
+    public long countAboveAverage(long[] purchases) {
+        //long sum = 0;
+       // for (long purchase : purchases) {
+          //  sum += purchase;
+        //long average = sum / purchases.length;
         long countAbove = 0;
         for (long purchase : purchases) {
-            if (purchase > average){
+            if (purchase >findAverage(purchases)){
                 countAbove++;
             }
         }
         return countAbove;
     }
-}
 
+    public void setAverage(long average) {
+        this.average = average;
+    }
+}
