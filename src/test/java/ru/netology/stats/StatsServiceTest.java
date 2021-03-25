@@ -61,6 +61,7 @@ class StatsServiceTest {
 
         assertEquals(expected, actual);
     }
+
     @Test
     void countAboveAverage() {
         StatsService service = new StatsService();

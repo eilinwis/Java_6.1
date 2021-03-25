@@ -2,7 +2,7 @@ package ru.netology.stats;
 
 public class StatsService {
 
-    private long average ;
+    private long average;
     private long sum;
 
     public long calculateSum(long[] purchases) {
@@ -13,11 +13,7 @@ public class StatsService {
         return sum;
     }
 
-        public long findAverage(long[] purchases) {
-         long sum = 0;
-        for (long purchase : purchases) {
-            sum += purchase;
-        }
+    public long findAverage(long[] purchases) {
         long average = calculateSum(purchases) / purchases.length;
         return average;
     }
@@ -47,19 +43,21 @@ public class StatsService {
         }
         return month + 1;
     }
+
     public long countBelowAverage(long[] purchases) {
         long countBelow = 0;
         for (long purchase : purchases) {
-            if (purchase < findAverage(purchases)){
-                countBelow++;}
+            if (purchase < findAverage(purchases)) {
+                countBelow++;
             }
-        return countBelow;
         }
+        return countBelow;
+    }
 
     public long countAboveAverage(long[] purchases) {
         long countAbove = 0;
         for (long purchase : purchases) {
-            if (purchase >findAverage(purchases)){
+            if (purchase > findAverage(purchases)) {
                 countAbove++;
             }
         }
